@@ -42,7 +42,7 @@ div.bio{
 }
 
 img.bioImage{
-    width: 30%;
+    width: 20%;
     margin: auto;
     display: block;
 }
@@ -68,16 +68,16 @@ div.linkList{
     margin-left: auto;
 }
 
-li.assignmentLink{
+li.projectLink{
     font-weight: 300;
     font-size: 1.05em;
     line-height: 130%;
 }
 
-li.assignmentLink > a{
+li.projectLink > a{
     color: #000000;
 }
 
-li.assignmentLink > a:hover{
+li.projectLink > a:hover{
     background-color: #FFFF00; 
 }
