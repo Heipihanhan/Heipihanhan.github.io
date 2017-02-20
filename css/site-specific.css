@@ -1,5 +1,5 @@
 body{
-    font-family: 'Cuprum', helvetica, sans-serif;
+    font-family: 'Sansita', helvetica, sans-serif;
 }
 
 div.title{
@@ -8,7 +8,7 @@ div.title{
 }
 
 h1{
-  color: #000000;
+    color: #000000;
     font-weight: 600;
     font-size: 2em;
     max-width: 800px;
@@ -20,8 +20,10 @@ h1{
 }
 
 h2{
+    color:#000000;
     font-size: 1.25em;
     text-align: center;
+
 }
 
 h3{
