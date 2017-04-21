@@ -1,0 +1,109 @@
+---
+title: "Mr.Blacks.Bot Analysis"
+author: "Jianghanhan Li"
+date: "4/20/2017"
+output: html_document
+---
+### Objectives
+
+##### • Figure out how the TV show Mr.Blacks.Bot is performing, in terms of broad patterns
+##### • Test producer A's hypothesis: some creative decisions at the end of the first Season 1 was a primary driver of weaker ratings in the Season 2 
+##### • Counterintuitive findings, scheduling of the show, commercials
+
+#### 1. Data Wrangling  
+
+```{r}
+stopifnot(require(dplyr))
+stopifnot(require(tidyr))
+stopifnot(require(broom))
+stopifnot(require(ggplot2))
+```
+
+```{r}
+# choose mxm.csv in your folder
+# mxm <- read.csv(file.choose(), header = TRUE)
+mxm <- read.csv("~/Dropbox/Career/NBCU/mxm.csv", header = TRUE)
+str(mxm)
+```
+
+```{r}
+# chooseseasonal_telecast_ratings.csv in your folder 
+# season <- read.csv(file.choose(), header = TRUE)
+season <- read.csv("~/Dropbox/Career/NBCU/seasonal_telecast_ratings.csv", header = TRUE)
+str(season)
+
+# split date and time 
+season$date <- as.Date(season$time_slot)  
+season$time <- format(as.POSIXct(season$time_slot), format = "%H:%M")
+
+# change the rating to the same unit as the rating in mxm.csv 
+season$rating_new <- season$rating*100
+season$duration <- season$program_duration/60
+
+```
+
+
+#### 2. Exploratory Analysis
+
+##### Mr.Blakcs.Bot performance in DKN network 
+
+```{r}
+summary(mxm)
+plot(mxm$Date, mxm$Rating, xlab = "Date", ylab = "Rating")
+```
+
+From above, we see a broad trend for the *rating*. For Season 1, from 2015-09-21 to 2016-05-16, the median value of the rating is declining, from slightly above 3 to slightly below 1.5. However, at the end of Season 1, around May 23, 2016, the median value of rating increased quite a bit, evidently above 1.5, and yet it is of high variance, as the interquantile range is quite wide and it has a few outliers, one of which is above 3.5. It seems people have vide range of reactions to the ending of the show. It suggests that, during the 60 mins of the Season 1 finale show, at some points in time, there were a lot of people watching, (the above 3.5 ratings), and at some other points in time, there were very few people watching. 
+
+Since the begining  of season 2, the median ratings in general stayed below 1.5. It seems the producer's hypothesis, that the creative decisions at the end of season 1 lead to low Season 2 ratings, made some sense. 
+
+```{r}
+plot(mxm$Time, mxm$Rating, xlab = "Date", ylab = "Rating")
+```
+
+We also see that overall, the ratings for Season 1 where all the episodes were aired between 10 pm to 11 pm, were higher than the ratings for Season 2 where almost all of the episodes were aired between 8 pm to 9 pm.  
+
+```{r}
+plot(mxm$Date, mxm$Total_Loss_perc, xlab = "Date", ylab = "Total Loss Percentage")
+plot(mxm$Time, mxm$Total_Loss_perc, xlab = "Date", ylab = "Total Loss Percentage")
+```
+
+Also, from the graph that reveals the *total_loss_percentage* across time, we see that the percentage of people who stopped watching TV at that minute stayed mostly constant during Season 1 (2015-09-21 to 2016-05-23), and increased slightly during Season 2 (2016-09-14 to 2017-01-18).  
+
+### Commercials
+
+
+```{r}
+S1_Final <- mxm %>% filter(Date == "2016-05-23")
+ggplot(S1_Final, aes(x = Time, y = Rating)) + geom_point(aes(colour = Total_Loss_perc)) + geom_vline(xintercept = which(S1_Final$Minute_In_Commercial == 1))
+```
+
+From the graph above, we see that the ratings decreased substantially after the first few minutes of the season 1 final show. It seems whenever commercials were inserted, the ratings dropped further. The ratings would increase slowly after the commercials. 
+
+It's worthy pointing out that there were moments between the commercials that the ratings already showed downward trend. 
+
+Is this pattern unique to the season 1 finale or not ? I plotted the same graphs to Season 1 episodes 1 to 3 to test it out. 
+
+```{r}
+S1_1 <- mxm %>% filter(Date == "2015-09-21")
+ggplot(S1_1, aes(x = Time, y = Rating)) + geom_point(aes(colour = Total_Loss_perc)) + geom_vline(xintercept = which(S1_Final$Minute_In_Commercial == 1)) + ggtitle("Season 1 Episode 1") 
+
+S1_2 <- mxm %>% filter(Date == "2015-09-28")
+ggplot(S1_2, aes(x = Time, y = Rating)) + geom_point(aes(colour = Total_Loss_perc)) + geom_vline(xintercept = which(S1_Final$Minute_In_Commercial == 1)) + ggtitle("Season 1 Episode 2") 
+
+S1_3 <- mxm %>% filter(Date == "2015-10-05")
+ggplot(S1_3, aes(x = Time, y = Rating)) + geom_point(aes(colour = Total_Loss_perc)) + geom_vline(xintercept = which(S1_Final$Minute_In_Commercial == 1)) + ggtitle("Season 1 Episode 3") 
+
+```
+
+##### Scheduling 
+
+Compare Mr.Blacks.Bot with shows of the same genre - drama - that were aired at the same time in other networks 
+
+```{r}
+# summary(season)
+# ten_pm_shows <- season %>% filter(time == "22:00") %>% View()
+# ten_pm_shows %>% filter(genre == "Drama") %>% group_by(network, date) %>% View()
+
+```
+
+
