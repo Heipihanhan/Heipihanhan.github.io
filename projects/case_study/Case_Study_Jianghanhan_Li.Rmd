@@ -78,6 +78,7 @@ summary(season)
 drama <- season%>% filter(genre == "Drama")
 ggplot(drama, aes(date, rating_new, colour = factor(time))) + geom_point()
 ```
+
 From the above graph, we see that there is no systematic pattern that suggests dramas aired at 22:00 (purple dots) have high ratings than dramas aired at 20:00 pm (brown dots) in all four networks. Therefore, there isn't enough evidence to support the claim that scheduling is a significant factor for low ratings in Season 2. 
 
 ##### Commercials
