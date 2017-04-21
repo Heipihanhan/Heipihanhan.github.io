@@ -6,9 +6,10 @@ output: html_document
 ---
 ### Objectives
 
-##### • Figure out how the TV show Mr.Blacks.Bot is performing, in terms of broad patterns
-##### • Test producer A's hypothesis: some creative decisions at the end of the first Season 1 was a primary driver of weaker ratings in the Season 2 
-##### • Counterintuitive findings, scheduling of the show, commercials
+###### • Figure out how the TV show Mr.Blacks.Bot is performing, in terms of ratings and other broad patterns
+###### • Test hypothesis - if some creative decisions at the end of the first Season 1 was a primary driver of weaker ratings in the Season 2 
+###### • Any counterintuitive findings, on the scheduling of the show or the commercials 
+
 
 #### 1. Data Wrangling  
 
@@ -39,7 +40,6 @@ season$time <- format(as.POSIXct(season$time_slot), format = "%H:%M")
 # change the rating to the same unit as the rating in mxm.csv 
 season$rating_new <- season$rating*100
 season$duration <- season$program_duration/60
-
 ```
 
 
@@ -52,25 +52,46 @@ summary(mxm)
 plot(mxm$Date, mxm$Rating, xlab = "Date", ylab = "Rating")
 ```
 
-From above, we see a broad trend for the *rating*. For Season 1, from 2015-09-21 to 2016-05-16, the median value of the rating is declining, from slightly above 3 to slightly below 1.5. However, at the end of Season 1, around May 23, 2016, the median value of rating increased quite a bit, evidently above 1.5, and yet it is of high variance, as the interquantile range is quite wide and it has a few outliers, one of which is above 3.5. It seems people have vide range of reactions to the ending of the show. It suggests that, during the 60 mins of the Season 1 finale show, at some points in time, there were a lot of people watching, (the above 3.5 ratings), and at some other points in time, there were very few people watching. 
+From above, we see the broad trend for the *rating*. In Season 1, between Sep 21, 2015 and May 23, 2016, the median values of rating were declining, from slightly above 3 to slightly below 1.5. However, at the end of Season 1, around May 23, 2016, the median value of rating increased evidently to above 1.5. In the last episode of season 1, the rating in those 60 mins, is of high variance, as the interquantile range is quite wide and there are quite a few outliers, one of which goes above 3.5. This suggests that there is a wide range of reactions regarding the ending of the show. During the 60 mins of the Season 1 finale show, at some points in time, there were a lot of people watching, (the above 3.5 ratings), and at some other points in time, there were very few people watching. 
 
-Since the begining  of season 2, the median ratings in general stayed below 1.5. It seems the producer's hypothesis, that the creative decisions at the end of season 1 lead to low Season 2 ratings, made some sense. 
+Since the begining  of season 2, the median ratings in general stayed below 1.5. It seems the producer's hypothesis that the creative decisions at the end of season 1 lead to low Season 2 ratings, made some sense. 
 
 ```{r}
 plot(mxm$Time, mxm$Rating, xlab = "Date", ylab = "Rating")
 ```
 
-We also see that overall, the ratings for Season 1 where all the episodes were aired between 10 pm to 11 pm, were higher than the ratings for Season 2 where almost all of the episodes were aired between 8 pm to 9 pm.  
+From the above plot, we also see that overall, the ratings for Season 1 where all the episodes were aired between 10 pm to 11 pm, were higher than the ratings for Season 2 where almost all of the episodes were aired between 8 pm to 9 pm. 
+
+
+##### Scheduling 
+
+Scheduling plays a very significant role in TV ratings. Mr. Bl@ck.s.bot changed its time between seasons, from Season 1 aired at 10 pm to Season 2 aired at 8 pm. 
+
+So how much of the change in ratings is potentially due to scheduling of the show. We could find this out by comparing Mr.Blacks.Bot with other shows, especially shows of the same genre, drama, that were aired during the same period in other networks. 
+
+Specifically, does 10 pm dramas perform better than 8 pm dramas ? 
+
+```{r}
+summary(season)
+# ten_pm_drama <- season %>% filter(time == "22:00" & genre == "Drama") %>% View()
+# eight_pm_drama <- season %>% filter(time == "20:00" & genre == "Drama") %>% View()
+drama <- season%>% filter(genre == "Drama")
+ggplot(drama, aes(date, rating_new, colour = factor(time))) + geom_point()
+```
+From the above graph, we see that there is no systematic pattern that suggests dramas aired at 22:00 (purple dots) have high ratings than dramas aired at 20:00 pm (brown dots) in all four networks. Therefore, there isn't enough evidence to support the claim that scheduling is a significant factor for low ratings in Season 2. 
+
+##### Commercials
+
+How about commercials ? Commercials usually distract audiences and give them excuses to exit the shows. It also affects ratings.
 
 ```{r}
 plot(mxm$Date, mxm$Total_Loss_perc, xlab = "Date", ylab = "Total Loss Percentage")
 plot(mxm$Time, mxm$Total_Loss_perc, xlab = "Date", ylab = "Total Loss Percentage")
 ```
 
-Also, from the graph that reveals the *total_loss_percentage* across time, we see that the percentage of people who stopped watching TV at that minute stayed mostly constant during Season 1 (2015-09-21 to 2016-05-23), and increased slightly during Season 2 (2016-09-14 to 2017-01-18).  
+The plots above reveal the *total_loss_percentage* across time, we see that the percentage of people who stopped watching TV at that minute stayed mostly constant during Season 1 (2015-09-21 to 2016-05-23), and increased slightly during Season 2 (2016-09-14 to 2017-01-18). The *total_loss_percentage* is mostly consistent with *rating* across time. 
 
-### Commercials
-
+Now let's see if we include commercials, how would the picture look like. 
 
 ```{r}
 S1_Final <- mxm %>% filter(Date == "2016-05-23")
@@ -95,15 +116,9 @@ ggplot(S1_3, aes(x = Time, y = Rating)) + geom_point(aes(colour = Total_Loss_per
 
 ```
 
-##### Scheduling 
+The graphs above show that commercials do negatively affect ratings. However, it also reveals that ratings also oscillated when there was no commercials. So the ratings also response to the content of the show intrinsicaly. 
 
-Compare Mr.Blacks.Bot with shows of the same genre - drama - that were aired at the same time in other networks 
+#### 3. Next steps
 
-```{r}
-# summary(season)
-# ten_pm_shows <- season %>% filter(time == "22:00") %>% View()
-# ten_pm_shows %>% filter(genre == "Drama") %>% group_by(network, date) %>% View()
-
-```
-
+This is an exploratory analysis. For the next steps, it's worthy looking at it through a multivariate regression model to test the hypothesis, including a time series variable. It's also worthiwhile to try the Difference in Differences method to further study the differential effect of a treatment, in this case, the commercials, on the ratings. 
 
