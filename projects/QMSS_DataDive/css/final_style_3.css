@@ -117,8 +117,8 @@ h4 {
 }
 
 .sectLong {
-    height: 880%;
-    width: 100%;
+    height: 100%;
+    width: 120%;
     background-size: auto;
     background-repeat: no-repeat;
     display: table;
@@ -186,48 +186,69 @@ h4 {
 
 
 .sectFive {
-    background-image: url("../img/cc.png");
+    background-image: url("../img/cc1.png");
 
 }
 
 .sectSix {
-	background-image: url("../img/.jpg");
+	background-image: url("../img/pctdgp.png");
 }
 
 
 
 .sectEight {
-    background-image: url("../img/06.jpg");
+    background-image: url("../img/grouped_cc.png");
 }
 
 
 
 .sectNine {
-   background-image: url("../img/pe-mining.png");
+   background-image: url("../img/cc.png");
 }
 
 .sectTen {
-   background-image: url("../img/pe-oilgas.png");
+   background-image: url("../img/resource.png");
 }
 
 .sectEleven {
-   background-image: url("../img/roe-mining.png");
+   background-image: url("../img/region_cc.png");
 }
 
 .sectTwelve {
-   background-image: url("../img/roe-oilgas.png");
+   background-image: url("../img/region_gdp.png");
 }
 
 .sectThirteen {
-   background-image: url("../img/roic-mining.png");
+   background-image: url("../img/pctgdp.png");
 }
 
 .sectFourteen {
-    background-image: url("../img/roic-oilgas.png");
+    background-image: url("../img/Transparent_Line.png");
 }
 
+.sectFifteen {
+    background-image: url("../img/performance_oilgas.png");
+}
 
+.sectSixteen {
+    background-image: url("../img/performance_oilgas.png");
+}
 
+.sectSeventeen {
+    background-image: url("../img/ethicscore.png");
+}
+
+.sectEighteen {
+    background-image: url("../img/diagram1.jpg");
+}
+
+.sectNineteen {
+    background-image: url("../img/diagram2.jpg");
+}
+
+.sectTwenty {
+    background-image: url("../img/diagram3.jpg");
+}
 
 
 
