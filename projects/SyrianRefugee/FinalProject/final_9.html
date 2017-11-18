@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+
+<head lang="en">
+    <meta charset="utf-8">
+    <title>World of a Syrian Refugee</title>
+    <link rel="stylesheet" type="text/css" href="../css/final_style_3.css">
+
+        <!-- Loading p5.js library -->
+    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/addons/p5.dom.js"></script>
+
+
+    <meta property="og:image" content="isi_articles_cartogram.png">
+    <script src="lib/d3.v3.min.js"></script>
+    <script src="lib/colorbrewer.js"></script>
+    <script src="lib/topojson.js"></script>
+    <script src="cartogram.js"></script>
+</head>
+
+
+<body>
+
+
+<div class="sect sectOne">
+    <h1>WORLD OF A SYRIAN REFUGEE</h1>
+    <h2>
+    COLUMBIA UNIVERSITY
+    <br>
+    Jianghanhan Li / Majed Abdulsamad / Maira Khan / Ge Zhao
+    </h2>
+</div>
+
+
+
+<div class="sect sectTwo">
+
+</div>
+
+
+<div class="subSection">
+ <h3>Our project investigates the international response to the Syrian refugee crisis, comparing actions to words. There goes a Syrian proverb that reads “yali eido bil may, mu metl eli eido bl nar”, which could be loosely translated as “He, whose hand is in the water, doesn’t compare himself to those whose hand is in the fire”. In other words, regarding the Syrian refugee crisis, is it true that countries doing the heavy-lifting work are the countries that were talked about the least in the news? Or vise versa. </h3>
+</div>
+
+
+<div class="sect sectThree">
+        <video class="sect sectTwo" playsinline autoplay muted loop>
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+
+  <source src="../img/Refugee_Intro1.mp4" type="video/mp4">
+
+  </video>
+
+</div>
+
+
+<div class="subSection">
+ <h3>On April 15th, 2011, a revolution broke out in southern Syria, and shortly afterwards, it spread to the rest of the country. By mid June that year, the government military cracked down on the demonstrations, which caused the first wave of displacement internally and externally, from Syria into neighboring countries, starting what we know today as the Syrian Refugee Crisis. It is the biggest forced migration in the history of the Middle East, and the largest population movement since World War II. </h3>
+</div>
+
+<div class="sect sectFourBW"></div> 
+
+
+<div class="sect sectFour"></div>   
+
+
+
+<div class="subSection">
+ <h3>Since 2011, the world map has changed, and continues to change, to Syrians fleeing the war to become refugees later, as well as to any Syrian passport-holders who would then seek asylums in countries they happened to visit. 
+<br>
+
+<br>
+ The Syrian refugee crisis has sent shock waves across the globe. In Europe and North America specificaly, the Syrian refugee crisis has stirred up mixed emotions and reactions, and in some cases, has divided the society on issues such as inclusion, security, and foreign policy, evolving beyond a humanitarian crisis to a political chaos, where talking points arose and media buzz reveberated. 
+<br>
+
+<br>
+ If we map the countries in the world, according to how many Syrian refugees and asylum seekers they have, what would it look like? Slide through the timeline bar to view changes across time, and hover above the countries to view more details. 
+
+</h3> 
+</div>
+
+
+
+<div class="sect sectFive" style="position: relative">
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <!--<h2><center><strong>World of a Syrian Refugee</strong></center></h2>
+    <p><center>Map scaled by the number of Syrian refugees and asylum seekers accepted by each country</center></p>-->
+    <div class="sect sectFive">
+<!--<
+        <img id="placeholder" alt="placeholder image for old browsers" src="isi_articles_cartogram.png">
+>-->
+        <svg id="map"></svg>
+        <div id="theyear" style="margin-left: 1200px">
+            <span></span><br />
+            <input style="position:relative; width:110px" type="range" min="1990" max="2015" value="1990">
+        </div>
+        <div class="sect sectFive">
+            Data Source: <a href="http://www.unhcr.org/en-us">UNHCR</a>,    Libraries used: <a href="http://d3js.org">d3.js</a> and <a href="https://github.com/shawnbot/d3-cartogram/">cartogram.js.</a>  
+            <!--<CC-BY J.P. Alperin</div>>-->
+        </div>
+
+        <div id="details-popup" style="padding-bottom: 20px">
+            <p class="country-name"></p>
+            <div class="line-graph"></div>
+        </div>
+    </div>
+    <!-- <form>
+        <p> -->
+            <!--<label>Scale by <select id="field"></select></label>-->
+            <!--<label>in <select id="year"></select></label>-->
+            <!--<span id="status"></span>-->
+<!--<
+        </p>
+    </form>
+    <div id="about">
+        <h2>About</h2>
+        <p>
+            This map was produced by Juan Pablo Alperin (<a href="https://twitter.com/intent/follow?screen_name=juancommander">@juancommander</a>) using
+            <a href="http://d3js.org">d3.js</a> and <a href="https://github.com/shawnbot/d3-cartogram/">cartogram.js</a>.
+            It was inspired by the out of date map over at <a href="http://worldmapper.org/display.php?selected=205">worldmapper.org</a>.
+            Unfortunately, not much has changed. Due to differences in the implementations, the two maps cannot be directly
+            compared to one another.
+        </p>
+        <p>
+            Juan Pablo is a PhD Candidate at Stanford University and a researcher with the <a href="http://pkp.sfu.ca">Public Knowledge Project</a>.
+        </p>
+        <p>
+            This work was carried out with the support of the IDRC-funded project,
+            <a href="http://flacso.org.br/oa/calidad-en-la-comunicacion-cientifica-abierta-de-america-latina/?lang=en">Quality in the Open Scholarly Communication of Latin America</a>.
+            The data are from Thomson Reuters and were collected by the Mimir Project conducted at Stanford University by Daniel A. McFarland, Dan Jurafsky, Chris Manning, and Woody Powell,
+            which was generously funded by the Office of the President at Stanford University and by the National Science Foundation [Award 0835614]. </p>
+        <p>
+            The code (including most of this page) was adapted from the example provided by
+            <a href="https://github.com/shawnbot/d3-cartogram/">shawnbot</a>.
+            You can see the source code over on <a href="https://github.com/jalperin/d3-cartogram">Juan's github</a>.
+        </p>
+</div>
+>-->
+<script language="javascript" type="text/javascript" src="../js/maira.js"></script>
+
+</div>
+
+
+<div class="subSection">
+    <h3>Using UNHCR data on admission of refugees and asylum seekers per country from 1968 to 2015, we redraw the map of the world from the persepctive of a Syrian refugee. Which countries are bigger, more likely to accept a Syrian refugee? And which countries are not? This cartogram offers us a caricature and reveals a constrasting picture. Over a span of almost five decades, we see the changes unfold over time. Especially, during the Syrian civil war, from 2011 to 2015, critical changes took place. Some are expected, some are surprises.
+    <br>
+
+    <br>
+    What about the media buzz generated around Syrian refugees? Which countries were most frequently mentioned or discussed along with Syrian refugees in the news on the Internet? Using GDELT Country Timeline data from Google, we were able to produce a timeline graph of news intensity of all the countries ever associated with Syrian refugees in the news articles on the Internet. 
+
+    </h3>
+</div>
+
+<div class="sectLong sectEight"></div>
+
+<div class="subSection">
+    <h3>
+    While there isn't a comprehensive way to accurately measure the news intensity about Syrian refugee from countries around the world, the GDELT Country Timeline data of news article mentions does shed some light on this issue, and we find significant differences between countries and continents.
+    </h3>
+</div>
+
+
+<div class="sect sectNine"></div> 
+<div class="sect sectTen"></div> 
+<div class="sect sectEleven"></div> 
+<div class="sect sectTwelve"></div> 
+<div class="sect sectThirteen"></div> 
+
+
+<div class="subSection">
+    <h3>
+     The top 10 countries mostly associated with Syrian refugees in the news consist of 6 Middle Eastern countries and 4 European countries. After we compare the news intensity they received from the media with the number of refugees and asylum seekers they took, we discovered something interesting and have come to a better understanding regarding the "Words vs. Actions" concept in state response to the largest population movement in the 21st Century. 
+    </h3>
+
+</div>
+
+
+
+<div class="sect sectSix"> 
+<h1>
+    Words vs. Actions  
+</h1>
+<script language="javascript" type="text/javascript" src="../js/ranking_hanhan.js"></script>
+</div>
+
+
+<!-- 
+<div class="subSection">
+   <h3 class="assignmentLink"><a href="https://heipihanhan.github.io/MyWebsite/final_project/html/ranking.html">Ranking of Intensity </a></h3>
+</div> -->
+
+
+<!-- <div class="sect sectSix"> 
+<h5>
+Data Sources: 
+<br>
+UNHCR <a href="https://docs.google.com/spreadsheets/d/1j5Og9KJefjkWUXaeRsuvKhx_kgcQEryuu5rC8fVuJ_8/edit?usp=sharing"></a>
+<br>
+GDELT <a href= "https://docs.google.com/spreadsheets/d/1rRn84cla95x4IoQrsJwcjKQiH9DTiN00TaA4726evYA/edit?usp=sharing"></a> 
+<br>
+<br>
+Majed Abdulsamad / Maira Khan / Jianghanhan Li / Ge Zhao
+<br>
+<br>
+May 5th 2017
+</h5>
+</div> -->
+
+
+</body>
+
+</html>

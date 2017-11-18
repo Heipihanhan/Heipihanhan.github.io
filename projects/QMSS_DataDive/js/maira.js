@@ -129,7 +129,7 @@ var segmentized = location.search === "?segmentized",
 d3.json(url, function(topo) {
     topology = topo;
     geometries = topology.objects.countries.geometries;
-    d3.csv("data/fdi_data.csv", function(data) {
+    d3.csv("data/refugee_data.csv", function(data) {
         rawData = data;
         dataById = d3.nest()
                 .key(function(d) { return d.numcode; })
@@ -300,7 +300,7 @@ function drawLineGraph(data) {
                   "translate(" + margin.left + "," + margin.top + ")");
 
     // Get the data
-    //d3.csv("data.csv", function(error, data) {
+    //d3.csv("fdi_data.csv", function(error, data) {
         // data.forEach(function(d) {
         //     d.date = parseDate(d.date);
         //     d.close = +d.close;
