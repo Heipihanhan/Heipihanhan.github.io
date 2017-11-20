@@ -129,7 +129,7 @@ var segmentized = location.search === "?segmentized",
 d3.json(url, function(topo) {
     topology = topo;
     geometries = topology.objects.countries.geometries;
-    d3.csv("data/fdi_data.csv", function(data) {
+    d3.csv("data/refugee_data.csv", function(data) {
         rawData = data;
         dataById = d3.nest()
                 .key(function(d) { return d.numcode; })
