@@ -1,0 +1,249 @@
+---
+title: "Query Histocial Records from Columbia University History Lab - Declassification Engine API"
+author: "Jianghanhan Li"
+date: "2017-12-15"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+# R Package for History Lab Declassification Engine API 
+
+Declassification Engine API is provided by [Columbia University History Lab](http://www.history-lab.org/). 
+
+#### Setup
+
+```{r eval=FALSE}
+install.packages(c("devtools", "roxygen2", "testthat", "knitr"))
+```
+
+```{r eval=FALSE}
+devtools::install_github(("hadley/devtools"), force = TRUE)
+```
+
+```{r}
+library(devtools)
+library(roxygen2)
+library(testthat)
+devtools::session_info()
+```
+
+```{r}
+library(httr)
+library(jsonlite)
+library(rvest)
+```
+
+#### Dispaly Welcome Page `declass_welcome`
+
+```{r}
+declass_welcome <- function(return_type = "string"){
+  url <- "http://api.declassification-engine.org/declass"
+  message <- httr::content(GET(url))
+  if (return_type == "html") {
+    return(message)
+  } else if (return_type == "string") {
+    text <- rvest::html_text(message)
+    return(text)
+  } else {
+    notice <- "Return_type not supported"
+    return(notice)
+  }
+}
+
+test_declass_welcome <- function() {
+  print(declass_welcome("html"))  
+  print(declass_welcome("string"))
+  print(declass_welcome("xml"))
+  print(declass_welcome())
+}
+test_declass_welcome()
+```
+
+#### Display all available document metadata fields `declass_fields`
+
+```{r}
+declass_fields <- function(return_type = "list") {
+  url <- "http://api.declassification-engine.org/declass/v0.4/fields"
+  if(return_type == "list") {
+    parsed_json <- jsonlite::fromJSON(url)
+    fields <- parsed_json$results$fields
+    return(fields)
+  } else if(return_type == "raw") {
+    raw <- content(GET(url))
+    return(raw)
+  } else {
+    notice <- "Return_type not supported"
+    return(notice)
+  }
+}
+
+
+test_declass_fields <- function() {
+  print(declass_fields("list"))
+  print(declass_fields("raw"))
+  print(declass_fields())
+}
+test_declass_fields()
+```
+
+#### List all available collections `declass_collection`
+
+```{r}
+declass_collection <- function(return_type = "list"){
+  url <- "http://api.declassification-engine.org/declass/v0.4/collections"
+  parsed_json <- jsonlite::fromJSON(url)
+  collections <- parsed_json$results$collections
+  if (return_type == "list") {
+    return(collections)
+  } else if (return_type == "raw") {
+    raw <- content(GET(url))
+    return(raw)
+  } else {
+    notice <- "Return_type not supported"
+    return(notice)
+  }
+}
+
+test_declass_collection <- function() {
+  print(declass_collection("list"))  
+  print(declass_collection("raw"))
+  print(declass_collection())
+}
+
+test_declass_collection()
+```
+
+#### Display the available entities for a particular collection `declass_collection_entity`
+
+```{r}
+declass_collection_entity <- function(collection) {
+  if (collection %in% c("cpdoc", "clinton", "kissinger", "statedeptcables", "frus", "ddrs", "cabinet", "pdb")) {
+    url <- paste("http://api.declassification-engine.org/declass/v0.4/entity_info/?collection=", collection, sep = "")
+    parsed_json <- jsonlite::fromJSON(url)
+    collection <- parsed_json$results$entity
+    return(collection)
+  } else {
+    notice <- "Collection name and entities not found"
+    return(notice)
+  }
+}
+
+test_declass_collection_entity <- function() {
+  print(declass_collection_entity("cpdoc"))  
+  print(declass_collection_entity("clinton"))
+  print(declass_collection_entity("kissinger"))
+  print(declass_collection_entity("statedeptcables"))
+  print(declass_collection_entity("frus"))
+  print(declass_collection_entity("ddrs"))
+  print(declass_collection_entity("cabinet"))
+  print(declass_collection_entity("pdb"))
+  print(declass_collection_entity(""))
+}
+
+test_declass_collection_entity()
+```
+
+#### Query data for a specified entity in a collection `declass_entity_data` 
+
+```{r}
+declass_entity_data <- function(collection, entity, page_size = 25, page = 1, num_pages = 10) {
+  url <- paste("http://api.declassification-engine.org/declass/v0.4/entity_info/?collection=",collection, "&entity=", entity, "&page_size=", page_size, "&page=", page, sep = "")
+  
+   if (collection %in% c("cpdoc",  "kissinger", "cabinet") & entity %in% c("countries", "persons", "topics")) {
+    }
+   else if (collection %in% c("statedeptcables", "frus", "ddrs", "pdb") & entity %in% c("countries", "persons", "topics", "classifications")) {
+    }
+   else if (collection == "clinton" & entity %in% c("countries", "persons", "classifications")) {
+      } 
+  else {
+    notice <- "Collection or entity name not found"
+    return(notice)
+    
+  }
+  print(url)
+  parsed_json <- jsonlite::fromJSON(url)
+  entity_data <- parsed_json$results
+  num_pages <- num_pages - 1
+
+  while (is.null(parsed_json$next_page) == FALSE & num_pages > 0) {
+    print(parsed_json$next_page)
+    parsed_json <- jsonlite::fromJSON(parsed_json$next_page)
+    entity_data <- rbind(entity_data, parsed_json$results)
+    num_pages <- num_pages - 1
+  }
+  return(entity_data)
+}
+
+test_declass_entity_data <- function() {
+print(declass_entity_data("kissinger", "topics", page_size = 1, num_pages = 1))
+print(declass_entity_data("kissinger", "topics", page_size = 1, num_pages = 2))
+print(declass_entity_data("kissinger", "topics", page_size = 2, num_pages = 1))
+print(declass_entity_data("kissinger", "topics"))
+print(declass_entity_data("clinton", "topics"))
+print(declass_entity_data("kissinger", "topics", page_size = 50, num_pages = 1))
+}
+
+test_declass_entity_data()
+```
+
+Here the topics in these collections were re-engineered using Topic Modeling, as exactly the same as available in the Declassification Engine API. 
+
+#### Return random document ids with a limit `declass_query_random_ids`
+
+```{r}
+declass_query_random_ids <- function(limit = 10) {
+  base_url <- "http://api.declassification-engine.org/declass/v0.4/random/?limit="
+  if (limit <= 1024) {
+    url <- paste(base_url, limit, sep = "")
+    ids <- jsonlite::fromJSON(url)$results
+    return(ids)
+  } else {
+    notice <- "Limit exceeds the maximum 1024"
+    return(notice)
+  }
+}
+
+test_declass_query_random_ids <- function() {
+print(declass_query_random_ids(32))
+print(declass_query_random_ids(1100))
+}
+
+test_declass_query_random_ids()
+```
+
+For those who don't know what they should be looking for here, we offer them randomly sampled ids. So they could check out the documents by ID later. 
+
+#### Query document by ID `declass_query_id_data`
+
+Allow user to manually input individual id or list of ids
+
+```{r}
+declass_query_id_data <- function(id_list) {
+  base_url <- "http://api.declassification-engine.org/declass/v0.4/?ids="
+  url <- paste(base_url,id_list, sep = "")
+  doc <- jsonlite::fromJSON(url)
+  return(doc)
+}
+
+# test 
+id <- c("Clinton-74931")
+declass_query_id_data(id)
+
+```
+
+#### Query documents based on randomly sampled ids `declass_query_random_id_data`
+
+```{r}
+declass_query_random_ids_data <- function(limit) {
+  ids <- declass_query_random_ids(limit)
+  id_list <- paste(ids$id, collapse = ",")
+  id_list <- URLencode(id_list)
+  return (declass_query_id_data(id_list))
+}
+
+# test
+declass_query_random_ids_data(5)
+```
+
