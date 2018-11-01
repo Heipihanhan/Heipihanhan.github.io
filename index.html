@@ -1,58 +1,1054 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hanhan</title>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
 
-    <!-- Stylesheet link -->
-    <link rel="stylesheet" type="text/css" href="css/site-specific.css">
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Hanhan</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
 
-    <!-- Google fonts code -->
-    <link href="https://fonts.googleapis.com/css?family=Oranienbaum" rel="stylesheet">
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- p5.js library-->
-    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
-    <script language="javascript" type="text/javascript" src="../js/sketch.js"></script>
-  </head>
-  
-  <body>
-    <div class="title">
-      <h1> Hanhan </h1>
-    </div>
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="css/base.css">  
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/vendor.css">     
 
-    <br>
+   <!-- script
+   ================================================== -->   
+	<script src="js/modernizr.js"></script>
+	<script src="js/pace.min.js"></script>
 
-    <!-- <div class="bio"><img src="img/hh_image.jpeg"></div> -->
+   <!-- favicons
+	================================================== -->
+	<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
 
-    <br>
+</head>
 
-    <div class=linkList>
-      <h2>Data Projects</h2>
-      <ul> 
-        <li class="projectLink"><a href="projects/SyrianRefugee/FinalProject/final_8.html">World of a Syrian Refugee</a></li>
-        <li class="projectLink"><a href="projects/NYC_Bob_Dylan_Songs.jpeg">Places in NYC that Bob Dylan Sang About</a></li> 
-        <li class="projectLink"><a href="projects/World_Population_Change.jpeg">World Population Change 2000 - 2010</a></li>
-        <li class="projectLink"><a href="projects/NYC_311_Sanitation_Condition.jpeg">311 Sanitation Complaints in NYC</a></li>
-        <li class="projectLink"><a href="projects/NYC_Foreign_Born.jpeg">Foreign Born Population in NYC</a></li>
-        <li class="projectLink"><a href="https://salty-wildwood-6870.herokuapp.com">The Strategic Marriage of Media Companies and Political Action Committees</a></li>
-      </ul>  
-      <br>
+<body id="top">
+
+	<!-- header 
+   ================================================== -->
+   <header>   	
+   	<div class="row">
+
+   		<div class="top-bar">
+   			<a class="menu-toggle" href="#"><span>Menu</span></a>
+
+	   		<div class="logo">
+		         <a href="index.html">Hanhan</a>
+		      </div>		      
+
+		   	<nav id="main-nav-wrap">
+					<ul class="main-navigation">
+						<li class="current"><a class="smoothscroll"  href="#intro" title="">Home</a></li>
+						<li><a class="smoothscroll"  href="#about" title="">About</a></li>
+						<li><a class="smoothscroll"  href="#resume" title="">Resume</a></li>
+						<li><a class="smoothscroll"  href="#portfolio" title="">Portfolio</a></li>
+						<li><a class="smoothscroll"  href="#services" title="">Services</a></li>				
+						<li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>	
+						<!-- <li><a href="styles.html" title="">Style Demo</a></li>				 -->
+					</ul>
+				</nav>    		
+   		</div> <!-- /top-bar --> 
+   		
+   	</div> <!-- /row --> 		
+   </header> <!-- /header -->
+
+	<!-- intro section
+   ================================================== -->
+   <section id="intro">   
+
+   	<div class="intro-overlay"></div>	
+
+   	<div class="intro-content">
+   		<div class="row">
+
+   			<div class="col-twelve">
+
+	   			<h5>Hello!</h5>
+	   			<h1>I'm Hanhan J. Li</h1>
+
+	   			<p class="intro-position">
+	   				<span>Data Scientist</span>
+	   				<span>Bridge the Techie and the Fuzzy</span> 
+	   			</p>
+
+	   			<a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
+
+	   		</div>  
+   			
+   		</div>   		 		
+   	</div> <!-- /intro-content --> 
+
+   	<!-- <ul class="intro-social">        
+         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+         <li><a href="#"><i class="fa fa-behance"></i></a></li>
+         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+      </ul> --> <!-- /intro-social -->      	
+
+   </section> <!-- /intro -->
 
 
-      <h2>Publications</h2>
-      <ul>
+   <!-- about section
+   ================================================== -->
+   <section id="about">  
 
-       <li class="projectLink"><a href="https://www.cjr.org/analysis/100_years_of_data.php">Eye on the Prize - A Data Visualization of 100 Years of Pulitzer Prizes</a></li>
-       <li class="projectLink"><a href="http://www.cjr.org/innovations/how_journalists_can_use_anchor_to_make_social_media_audible.php">Audio Social Media for Participatory Journalism - Media Analysis</a></li>
-       <li class="projectLink"><a href="http://globalcitynyc.com/2015/10/08/in-a-changing-harlem-west-african-vendors-struggled-to-preserve-business/">In a Changing Harlem, West African Vendors Struggled to Preserve Business</a></li>
-      </ul>
-      <br>
-   
-      <h2>R Package Development</h2>
-      <ul>
-       <li class="projectLink"><a href="https://heipihanhan.github.io/declass/">R Package for Columbia University History Lab Declassification Engine API</a></li>
-     </ul>
+   	<div class="row section-intro">
+   		<div class="col-twelve">
 
-    </div>
+   			<h5>About</h5>
+   			<h1>Let me introduce myself.</h1>
 
-  </body>
+   			<div class="intro-info">
+
+   				<img src="images/hanhan-profile-2.jpg" alt="Profile Picture">
+
+   				<p class="lead"> I'm Hanhan. For the past few years, I have been studying and working at the intersection of media and data science. I aspire to bridge the gap between the techie and the fuzzy as a data scientist working towards innovation in media, technology, and social good.</p>
+   			</div>   			
+
+   		</div>   		
+   	</div> <!-- /section-intro -->
+
+   	<div class="row about-content">
+
+   		<div class="col-six tab-full">
+
+   			<h3>Profile</h3>
+   			<p></p>
+
+   			<ul class="info-list">
+   				<li>
+   					<strong>Name</strong>
+   					<span>Hanhan J. Li</span>
+   				</li>
+<!--    				<li>
+   					<strong>Birth Date:</strong>
+   					<span>September 28, 1987</span>
+   				</li> -->
+   				<li>
+   					<strong>Job:</strong>
+   					<span>Data Scientist</span>
+   				</li>
+   				<li>
+   					<strong>Website:</strong>
+   					<span>heipihanhan.github.io</span>
+   				</li>
+   				<li>
+   					<strong>Email:</strong>
+   					<span>jianghanhan.li@columbia.edu</span>
+   				</li>
+
+   			</ul> <!-- /info-list -->
+
+   		</div>
+
+   		<div class="col-six tab-full">
+
+   			<h3>Skills</h3>
+   			<p></p>
+
+				<ul class="skill-bars">
+				   <li>
+				   	<div class="progress percent90"><span></span></div>
+				   	<strong>SQL</strong>
+				   </li>
+				   <li>
+				   	<div class="progress percent85"><span></span></div>
+				   	<strong>R</strong>
+				   </li>
+				   <li>
+				   	<div class="progress percent70"><span></span></div>
+				   	<strong>Python</strong>
+				   </li>
+				   <li>
+				   	<div class="progress percent95"><span></span></div>
+				   	<strong>Tableau</strong>
+				   </li>
+
+					<!-- <li>
+				   	<div class="progress percent75"><span></span></div>
+				   	<strong>QGIS</strong>
+				    </li> -->
+
+				</ul> <!-- /skill-bars -->		
+
+   		</div>
+
+   	</div>
+
+   	<div class="row button-section">
+   		<div class="col-twelve">
+   			<a href="#contact" title="Hire Me" class="button stroke smoothscroll">Contact Me</a>
+   			<a href="#" title="Download CV" class="button button-primary">Download CV</a>
+   		</div>   		
+   	</div>
+
+   </section> <!-- /process-->    
+
+
+   <!-- resume Section
+   ================================================== -->
+	<section id="resume" class="grey-section">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Resume</h5>
+   			<h1>More of my credentials.</h1>
+
+   			<p class="lead"></p>
+
+   		</div>   		
+   	</div> <!-- /section-intro--> 
+
+   	<div class="row resume-timeline">
+
+   		<div class="col-twelve resume-header">
+
+   			<h2>Education</h2>
+
+   		</div> <!-- /resume-header -->
+
+   		<div class="col-twelve">
+
+   			<div class="timeline-wrap">
+
+   				<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Dual M.A. Statistics, M.S. Data Journalism</h3>
+	   					<p>2015 - 2018</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Columbia University </h4>
+	   					<p>Hearst Data and Digital Scholarship. Master project on cross-border data investigation of international sanction invasion, part of the Panama Papers that won Pulitzer Prize.</p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>B.A. Communications, Statistics Minor</h3>
+	   					<p>2011 - 2014</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Pennsylvania State University</h4>
+	   					<p>Graduated with Distinction, Phi Kappa Phi, Mu Sigma Rho.</p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3> Philosophy Studies </h3>
+	   					<p>2009 - 2011</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Nankai University</h4>
+	   					<p>Ancient Greek Philosophy, German Idealism, Existentialism, Taoism, Confucianism, Marxism. Transfer abroad. </p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+   			</div> <!-- /timeline-wrap -->   			
+
+   		</div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /resume-timeline -->
+   	
+   	<div class="row resume-timeline">
+
+   		<div class="col-twelve resume-header">
+
+   			<h2>Work Experience</h2>
+
+   		</div> <!-- /resume-header -->
+
+   		<div class="col-twelve">
+
+   			<div class="timeline-wrap">
+
+   				<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-briefcase"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Data Scientist Intern</h3>
+	   					<p>Mar 2018 - Jun 2018</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>United Nations Development Programme</h4>
+	   					<p>	Built real-time crisis monitoring dashboards. Architected relational data schemas, validated quality for crisis indication, and supported ETL process. Recommended AI strategies, implemented NLP tools to improve the early warning system.</p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-briefcase"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Product Analyst Intern</h3>
+	   					<p>Jul 2017 - Sep 2017</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>India Today Group (Living Media)</h4>
+	   					<p>	Identified trends and defined key product metrics through time series forecasting that led to increased traffic and user engagement across IndiaToday.in web services and mobile apps. Presented weekly insights through visualizations to executive editors for optimizing resource deployment. </p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-briefcase"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Research Analyst</h3>
+	   					<p>Sep 2016 - May 2017</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Institute for Social and Economic Research and Policy </h4>
+	   					<p> Created maps and identified patterns of transportation, demographics, and economic developments from 100-year U.S. census data using QGIS, Carto and R. </p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-briefcase"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Program Manager</h3>
+	   					<p>Aug 2014 - Jul 2015</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>China America Innovation Network</h4>
+	   					<p> Managed marketing and fundraising to grow the transnational technology entrepreneurship network. Organized annual technology innovation summit for Hangzhou, the first smart city in China. </p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-briefcase"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Media Analyst Intern</h3>
+	   					<p>Jun 2013 - Aug 2013</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>The Townsend Group Inc.</h4>
+	   					<p> Conducted marketing research to support acquisition of prospective advertisers through Internet mining. Provided competitive reports and recommended media assets for cross-channel marketing. </p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-briefcase"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Researcher</h3>
+	   					<p>Sep 2012 - May 2014</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Media Effects Research Lab</h4>
+	   					<p> Conducted lab experiments to study the concept of agency negotiation on mobile game applications. Performed multivariate statistical analysis to examine effects of web interactivity on user engagement. Produced ICT4D literature review on trust and technology reviewing Indian electronic voting machine. </p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+   			</div> <!-- /timeline-wrap -->   			
+
+   		</div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /resume-timeline -->
+		
+	</section> <!-- /features -->
+
+
+	<!-- Portfolio Section
+   ================================================== -->
+	<section id="portfolio">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Portfolio</h5>
+   			<h1>Check Out Some of My Works.</h1>
+
+   			<p class="lead"></p>
+
+   		</div>   		
+   	</div> <!-- /section-intro--> 
+
+   	<div class="row portfolio-content">
+
+   		<div class="col-twelve">
+
+   			<!-- portfolio-wrapper -->
+	         <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
+
+	         	<div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/liberty.jpg" alt="Liberty">
+	                  <a href="#modal-01" class="overlay">	                  	           
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+		     					       <h3 class="folio-title">World of a Syrian Refugee</h3>	     		
+		     					    	 <span class="folio-types">
+		     					       	  Data Visualization
+		     					       </span>
+		     					   </div>	                      	
+	                     </div>                    
+	                  </a>
+	               </div>	               
+	        		</div> <!-- /folio-item -->
+
+	        		<div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/shutterbug.jpg" alt="Shutterbug">
+	               	<a href="#modal-02" class="overlay">              		                  
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Places in NYC that Bob Dylan Sang About</h3>	     
+		     					    	<span class="folio-types">
+		     					       	  Mapping
+		     					      </span>		     		
+		     					   </div> 	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->
+
+	            <div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/clouds.jpg"alt="Clouds">
+	                  <a href="#modal-03" class="overlay">             		                  
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Archive Query Automation</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  R package development
+		     					      </span>		     		
+		     					   </div> 	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->
+
+	            <div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/beetle.jpg" alt="Beetle">
+	                  <a href="#modal-04" class="overlay">                  	                 
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Make Social Media Audible</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  Columbia Journalism Review
+		     					      </span>		     		
+		     					   </div>  	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->     
+
+	        		<div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/lighthouse.jpg" alt="Lighthouse">
+	                  <a href="#modal-05" class="overlay">             		                  
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Eye on the Prize - A Data Visualization of 100 Years of Pulitzer Prizes</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  Data Visualization
+		     					      </span>		     		
+		     					   </div> 	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->
+
+	            <div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/salad.jpg" alt="Salad">
+	                  <a href="#modal-06" class="overlay">
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Foreign Born Population in NYC</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  Mapping
+		     					      </span>		     		
+		     					   </div>	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->   
+
+	            <!-- modal popups - begin
+	            ============================================================= -->
+	            <div id="modal-01" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-liberty.jpg" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>World of a Syrian Refugee</h4>		      
+					      <p>Our project investigates the international response to the Syrian refugee crisis, comparing actions to words. There goes a Syrian proverb that reads “yali eido bil may, mu metl eli eido bl nar”, which could be loosely translated as “He, whose hand is in the water, doesn’t compare himself to those whose hand is in the fire”. In other words, regarding the Syrian refugee crisis, is it true that countries doing the heavy-lifting work are the countries that were talked about the least in the news? Or vise versa.</p>
+
+					      <div class="categories">Web Interactive Data Visualization</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="projects/SyrianRefugee/FinalProject/final_8.html">Details</a>
+					      <a href="#" class="popup-modal-dismiss">Close</a>
+			         </div>		      
+
+				   </div> <!-- /modal-01 -->
+
+				   <div id="modal-02" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-shutterbug.jpg" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Places in NYC that Bob Dylan Sang About</h4>		      
+					      <p> Visualize the places in NYC that appears in the music of Bob Dylan</p>
+
+					      <div class="categories">Mapping</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="projects/NYC_Bob_Dylan_Songs.jpeg">Details</a>
+					      <a href="#" class="popup-modal-dismiss">Close</a>
+			         </div>		      
+
+				   </div> <!-- /modal-02 -->
+
+				   <div id="modal-03" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-clouds.jpg" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Archive Query Automation</h4>		      
+					      <p> The package automates the API query of declassification engine database and allows users to effectively explore the vast archive data from Columbia University History Lab.</p>
+
+					      <div class="categories">R package development</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="https://heipihanhan.github.io/declass/">Details</a>
+					      <a href="#" class="popup-modal-dismiss">Close</a>
+			         </div>		      
+
+				   </div> <!-- /modal-03 -->
+
+				   <div id="modal-04" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-beetle.jpg" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Make Social Media Audible</h4>		      
+					      <p>This article was produced as part of a graduate course on media writing and storytelling taught by the editors of Columbia Journalism Review.</p>
+
+					      <div class="categories">Published Articles</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href=https://www.cjr.org/innovations/how_journalists_can_use_anchor_to_make_social_media_audible.php>Details</a>
+					      <a href="#" class="popup-modal-dismiss">Close</a>
+			         </div>		      
+
+				   </div> <!-- /modal-04 -->
+
+				   <div id="modal-05" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-lighthouse.jpg" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Eye on the Prize - A Data Visualization of 100 Years of Pulitzer Prizes</h4>		      
+					      <p>Interactive data visualization of Pulitzer prizes at the 100 aniversary</p>
+
+					      <div class="categories">Data Visualization</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="https://www.cjr.org/analysis/100_years_of_data.php">Details</a>
+					      <a href="#" class="popup-modal-dismiss">Close</a>
+			         </div>		      
+
+				   </div> <!-- /modal-05 -->
+
+				   <div id="modal-06" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-salad.jpg" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>oreign Born Population in NYC</h4>		      
+					      <p>The map shows the foreign born population in NYC per precinct, based on data from 2014 American Community Survey.</p>
+
+					      <div class="categories">Mapping</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="projects/NYC_Foreign_Born.jpeg">Details</a>
+					      <a href="#" class="popup-modal-dismiss">Close</a>
+			         </div>		      
+
+				   </div> <!-- /modal-06 -->
+
+
+				   <!-- modal popups - end
+	            ============================================================= -->
+
+	         </div> <!-- /portfolio-wrapper --> 
+
+   		</div>  <!-- /twelve -->   
+
+   	</div> <!-- /portfolio-content --> 
+		
+	</section> <!-- /portfolio --> 
+
+
+	
+	<!-- services Section
+   ================================================== -->
+	<section id="services">
+
+		<div class="overlay"></div>
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Services</h5>
+   			<h1>What I Do</h1>
+
+   			<p class="lead"></p>
+
+   		</div>   		
+   	</div> <!-- /section-intro -->
+
+   	<div class="row services-content">
+
+   		<div id="owl-slider" class="owl-carousel services-list">
+
+	      	<div class="service">	
+
+	      		<span class="icon"><i class="icon-earth"></i></span>            
+
+	            <div class="service-content">	
+
+	            	 <h3>Data Science</h3>
+
+		            <p class="desc">
+	         		</p>
+	         		
+	         	</div> 	         	 
+
+				</div> <!-- /service -->
+
+				<div class="service">	
+
+					<span class="icon"><i class="icon-window"></i></span>                          
+
+	            <div class="service-content">	
+
+	            	<h3>Product Management</h3>  
+
+		            <p class="desc">
+	         		</p>
+
+	            </div>	                          
+
+			   </div> <!-- /service -->
+
+			   <div class="service">
+
+			   	<span class="icon"><i class="icon-paint-brush"></i></span>		            
+
+	            <div class="service-content">
+
+	            	<h3>Strategic Consulting</h3>
+
+		            <p class="desc">
+	        			</p> 
+
+	            </div> 	            	               
+
+			   </div> <!-- /service -->
+
+				<div class="service">
+
+					<span class="icon"><i class="icon-toggles"></i></span>	              
+
+	            <div class="service-content">
+
+	            	<h3>Volunteer</h3>
+
+		            <p class="desc">
+	         		</p> 
+	         		
+	            </div>                
+
+				</div> <!-- /service -->
+
+			   <div class="service">
+
+			   	<span class="icon"><i class="icon-image"></i></span>	            
+
+	            <div class="service-content">
+
+	            	<h3>Yoga & Meditation Instruction</h3>
+
+		            <p class="desc">
+	        			</p> 
+
+	            </div>	               
+
+			   </div> <!-- /service -->
+
+			   <div class="service">
+
+			   	<span class="icon"><i class="icon-chat"></i></span>	   	           
+
+	            <div class="service-content">
+
+	            	 <h3>Dance Peformance</h3>
+
+		            <p class="desc">
+	        			</p> 
+	        			
+	            </div>	               
+
+			   </div> <!-- /service -->
+
+	      </div> <!-- /services-list -->
+   		
+   	</div> <!-- /services-content -->
+		
+	</section> <!-- /services -->	
+
+
+	<!-- stats Section
+   ================================================== -->
+	<section id="stats" class="count-up">
+
+		<div class="row">
+			<div class="col-twelve">
+
+				<div class="block-1-6 block-s-1-3 block-tab-1-2 block-mob-full stats-list">
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-pencil-ruler"></i>
+						</div>
+
+						<h3 class="stat-count">
+							150
+						</h3>
+
+						<h5 class="stat-title">
+							Projects Completed
+						</h5>
+
+					</div> <!-- /stat -->					
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-users"></i>
+						</div>
+
+						<h3 class="stat-count">
+							90
+						</h3>
+
+						<h5 class="stat-title">
+							Happy Clients
+						</h5>
+
+					</div> <!-- /stat -->
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-badge"></i>
+						</div>
+
+						<h3 class="stat-count">
+							10
+						</h3>
+
+						<h5 class="stat-title">
+							Awards Received
+						</h5>
+
+					</div> <!-- /stat -->									
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-light-bulb"></i>
+						</div>
+
+						<h3 class="stat-count">
+							100
+						</h3>
+
+						<h5 class="stat-title">
+							Crazy Ideas
+						</h5>
+
+					</div> <!-- /stat -->
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-cup"></i>
+						</div>
+
+						<h3 class="stat-count">
+							1500
+						</h3>
+
+						<h5 class="stat-title">
+							Coffee Cups
+						</h5>
+
+					</div> <!-- /stat -->
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-clock"></i>
+						</div>
+
+						<h3 class="stat-count">
+							720
+						</h3>
+
+						<h5 class="stat-title">
+							Hours
+						</h5>
+
+					</div> <!-- /stat -->
+
+				</div> <!-- /stats-list -->
+
+			</div> <!-- /twelve -->
+		</div> <!-- /row -->
+
+	</section> <!-- /stats -->
+
+	
+   <!-- contact
+   ================================================== -->
+	<section id="contact">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Contact</h5>
+   			<h1>I'd Love To Hear From You.</h1>
+
+   			<p class="lead"></p>
+
+   		</div> 
+   	</div> <!-- /section-intro -->
+
+   	<div class="row contact-form">
+
+   		<div class="col-twelve">
+
+            <!-- form -->
+            <form name="contactForm" id="contactForm" method="post" action="">
+      			<fieldset>
+
+                  <div class="form-field">
+ 						   <input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="">
+                  </div>
+                  <div class="form-field">
+	      			   <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
+	               </div>
+                  <div class="form-field">
+	     				   <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="">
+	               </div>                       
+                  <div class="form-field">
+	                 	<textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required=""></textarea>
+	               </div>                      
+                 <div class="form-field">
+                     <button class="submitform">Submit</button>
+                     <div id="submit-loader">
+                        <div class="text-loader">Sending...</div>                             
+       				      <div class="s-loader">
+								  	<div class="bounce1"></div>
+								  	<div class="bounce2"></div>
+								  	<div class="bounce3"></div>
+								</div>
+							</div>
+                  </div>
+
+      			</fieldset>
+      		</form> <!-- Form End -->
+
+            <!-- contact-warning -->
+            <div id="message-warning">            	
+            </div>            
+            <!-- contact-success -->
+      		<div id="message-success">
+               <i class="fa fa-check"></i>Your message was sent, thank you!<br>
+      		</div>
+
+         </div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /contact-form -->
+
+   	<div class="row contact-info">
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-pin"></i>
+   			</div>
+
+   			<h5>Where to find me</h5>
+
+   			<p> New York, NY 10027 <br>
+            </p>
+
+   		</div>
+
+   		<div class="col-four tab-full collapse">
+
+   			<div class="icon">
+   				<i class="icon-mail"></i>
+   			</div>
+
+   			<h5>Contact Me At</h5>
+
+   			<p>jianghanhan.li@columbia.edu<br>
+					     
+			   </p>
+
+   		</div>
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-phone"></i>
+   			</div>
+
+   			<h5>Github</h5>
+
+   			<p>https://github.com/Heipihanhan<br>
+			   <br>
+			     
+			   </p>
+
+   		</div>
+   		
+   	</div> <!-- /contact-info -->
+		
+	</section> <!-- /contact -->
+
+
+   <!-- footer
+   ================================================== -->
+
+   <footer>
+     	<div class="row">
+
+     		<div class="col-six tab-full pull-right social">
+
+     			<ul class="footer-social">        
+			      <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+			      <!-- <li><a href="#"><i class="fa fa-behance"></i></a></li> -->
+			      <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
+			      <!-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li> -->
+			      <!-- <li><a href="#"><i class="fa fa-instagram"></i></a></li> -->
+			   </ul> 
+	      		
+	      </div>
+
+      	<div class="col-six tab-full">
+	      	<div class="copyright">
+		        	<span>© Copyright Hanhan J. Li 2018</span> 
+		        	<!-- <span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>	         	 -->
+		         </div>		                  
+	      	</div>
+
+	      	<div id="go-top">
+		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
+		      </div>
+
+      	</div> <!-- /row -->     	
+   </footer>  
+
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="js/jquery-2.1.3.min.js"></script>
+   <script src="js/plugins.js"></script>
+   <script src="js/main.js"></script>
+
+</body>
+
 </html>
